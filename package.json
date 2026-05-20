@@ -1,0 +1,19 @@
+{
+  "name": "notification-app",
+  "private": true,
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api start:dev",
+    "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:api\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.1.2",
+      "onFail": "download"
+    }
+  }
+}

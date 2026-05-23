@@ -16,11 +16,13 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   });
 
   if (res.status === 401) {
-    useAuthStore.getState().signOut();
-    if (typeof window !== 'undefined') {
-      window.location.href = '/auth/login';
+    if (token) {
+      useAuthStore.getState().signOut();
+      if (typeof window !== 'undefined') {
+        window.location.href = '/auth/login';
+      }
     }
-    throw new Error('Unauthorized');
+    throw new Error('Invalid credentials');
   }
 
   if (!res.ok) {

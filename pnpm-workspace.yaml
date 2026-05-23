@@ -1,6 +1,6 @@
 packages:
   - "apps/*"
   - "packages/*"
-allowBuilds:
-  '@nestjs/core': false
-  bcrypt: false
+onlyBuiltDependencies:
+  - sharp
+  - unrs-resolver
